@@ -1,4 +1,5 @@
-# ✨ Aura Learn — AI-Powered Student Dashboard
+# ✨ : Next-Gen Learning 
+Dashboard
 
 <div align="center">
 
