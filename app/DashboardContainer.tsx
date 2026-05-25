@@ -23,6 +23,7 @@ export function DashboardContainer() {
       <Suspense fallback={<DashboardSkeleton />}>
         <CoursesGrid courses={[]} />
       </Suspense>
+
     </motion.section>
   );
 }
