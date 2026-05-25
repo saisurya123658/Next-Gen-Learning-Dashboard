@@ -280,22 +280,6 @@ Course data is dynamically fetched from Supabase using secure server-side fetchi
 
 ---
 
-# 🔐 Environment Variables
-
-Create a `.env.local` file:
-
-```env
-# Public Variables
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-anon-key
-
-# Server Variables
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-```
-
----
-
 # 📦 Installation & Setup
 
 ## 1️⃣ Install Dependencies
@@ -395,22 +379,6 @@ vercel
 
 ---
 
-# 📸 Screenshots
-
-## 🌙 Dashboard Homepage
-(Add screenshot here)
-
----
-
-## 📚 Course Cards
-(Add screenshot here)
-
----
-
-## 📱 Mobile Layout
-(Add screenshot here)
-
----
 
 # 🔮 Future Enhancements
 
@@ -443,29 +411,7 @@ Surya
 Frontend Developer | MERN Stack Developer | AI Enthusiast
 ```
 
----
-
-# 🤝 Contributing
-
-Contributions are welcome!
-
-## Steps
-
-```bash
-Fork → Clone → Create Branch → Commit → Push → Pull Request
-```
-
----
-
-# ⭐ Support
-
-If you like this project, please ⭐ the repository!
-
----
-
 <div align="center">
-
-# ✨ Aura Learn — Next-Gen Learning Experience
 
 🚀 Built with Modern Web Technologies & Premium User Experiences
 
