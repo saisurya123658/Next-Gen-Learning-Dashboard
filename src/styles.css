@@ -1,0 +1,143 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@source "../app";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-glow: var(--border-glow);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  /* Dark mode is the only mode for this dashboard */
+  --radius: 1rem;
+
+  --background: oklch(0.16 0.018 270);
+  --foreground: oklch(0.97 0.005 270);
+
+  --surface: oklch(0.20 0.022 270);
+  --surface-elevated: oklch(0.235 0.025 270);
+
+  --card: oklch(0.21 0.024 270);
+  --card-foreground: oklch(0.97 0.005 270);
+
+  --popover: oklch(0.21 0.024 270);
+  --popover-foreground: oklch(0.97 0.005 270);
+
+  --primary: oklch(0.72 0.20 295);
+  --primary-foreground: oklch(0.14 0.02 270);
+  --primary-glow: oklch(0.78 0.18 330);
+
+  --secondary: oklch(0.27 0.03 270);
+  --secondary-foreground: oklch(0.97 0.005 270);
+
+  --muted: oklch(0.24 0.025 270);
+  --muted-foreground: oklch(0.68 0.025 270);
+
+  --accent: oklch(0.78 0.16 200);
+  --accent-foreground: oklch(0.14 0.02 270);
+
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.97 0.005 270);
+
+  --border: oklch(0.30 0.025 270);
+  --border-glow: oklch(0.55 0.18 295);
+  --input: oklch(0.27 0.03 270);
+  --ring: oklch(0.72 0.20 295);
+
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
+  --gradient-accent: linear-gradient(135deg, var(--accent), var(--primary));
+  --gradient-mesh-1: radial-gradient(at 20% 20%, oklch(0.72 0.20 295 / 0.25), transparent 50%),
+                     radial-gradient(at 80% 30%, oklch(0.78 0.18 330 / 0.18), transparent 50%),
+                     radial-gradient(at 50% 90%, oklch(0.78 0.16 200 / 0.15), transparent 60%);
+  --gradient-mesh-2: radial-gradient(at 70% 10%, oklch(0.78 0.16 200 / 0.20), transparent 55%),
+                     radial-gradient(at 10% 80%, oklch(0.72 0.20 295 / 0.18), transparent 55%);
+  --gradient-mesh-3: radial-gradient(at 30% 30%, oklch(0.78 0.18 330 / 0.22), transparent 50%),
+                     radial-gradient(at 80% 80%, oklch(0.78 0.16 200 / 0.18), transparent 55%);
+
+  --shadow-glow: 0 0 40px -10px oklch(0.72 0.20 295 / 0.45);
+  --shadow-elevated: 0 20px 50px -20px oklch(0 0 0 / 0.6);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "ss01", "cv11";
+    background-image:
+      radial-gradient(at 0% 0%, oklch(0.72 0.20 295 / 0.10), transparent 50%),
+      radial-gradient(at 100% 0%, oklch(0.78 0.16 200 / 0.08), transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@utility bento-tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  will-change: transform;
+}
+
+@utility grain {
+  position: relative;
+}
+@utility grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
